@@ -1,3 +1,6 @@
+from cgitb import small
+
+
 users = {
   "Jonathan": {
     "twitter": "jonnyt",
@@ -55,12 +58,55 @@ users = {
 }
 
 # 1. Get Jonathan's Twitter handle (i.e. the string `"jonnyt"`)
+print(users["Jonathan"]["twitter"])
+
 # 2. Get Erik's hometown
+print(users["Erik"]["home_town"])
+
 # 3. Get the array of Erik's lottery numbers
+print(users["Erik"]["lottery_numbers"])
+
 # 4. Get the species of Avril's pet Monty
+print(users["Avril"]["pets"][0]["species"])
+
 # 5. Get the smallest of Erik's lottery numbers
+eric_lotto = (users["Erik"]["lottery_numbers"])
+smallest_number = min(eric_lotto)
+print(smallest_number)
+
 # 6. Return an array of Avril's lottery numbers that are even
+avril_even_lottos = []
+for number in users["Avril"]["lottery_numbers"]:
+  if number % 2 == 0:
+    avril_even_lottos.append(number)
+print(avril_even_lottos)
+
 # 7. Erik is one lottery number short! Add the number `7` to be included in his lottery numbers
+users["Erik"]["lottery_numbers"].append(7)
+print(users["Erik"]["lottery_numbers"])
+
 # 8. Change Erik's hometown to Edinburgh
+users["Erik"]["hometown"] = "Edinburgh"
+print(users["Erik"])
+
 # 9. Add a pet dog to Erik called "Fluffy"
+users["Erik"]["pets"].append({"name":"fluffy", "species":"dog"})
+print(users["Erik"]["pets"])
+
 # 10. Add another person to the users dictionary
+users["Carl"] = {
+"twitter": "carlfn",
+    "lottery_numbers": [6, 34, 20, 2, 3],
+    "home_town": "Glasgow",
+    "pets": [
+    {
+      "name": "bugs",
+      "species": "rabbit"
+    },
+    {
+      "name": "dogmeat",
+      "species": "dog"
+    }
+  ]
+}
+print(users["Carl"])
